@@ -1,10 +1,25 @@
 /* styles.css */
 
-/*  tips : remember that we can chain 
-*
+/*  tips : remember that we can group selectors: 
+
+    .read, // here we have their common declarations
+    .unread {
+    color: white;
+    background-color: black;
+    }
+    .read {
+    /* several unique declarations
+    }
+    .unread {
+    /* several unique declarations \
+    }
+
 */
 
-#title {
-    background-color: aqua;
-    font-style: italic;
+#body {
+    background-color: #E5CFCB;
+    text-align: center;
+    font-size: 25px;
+    font-style: bold;
+    font-family: 'Courier New', Courier, monospace;
 }

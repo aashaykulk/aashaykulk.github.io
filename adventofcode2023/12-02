@@ -1,0 +1,57 @@
+def cubecon():
+    maxred = 12
+    maxgreen = 13
+    maxblue = 14
+    totPos = 0
+    count = 1
+    file = open("12-02.txt", 'r')
+    rd_file = file.read()
+    lines = rd_file.splitlines()
+    for line in lines:
+        i = 0
+        possible = True
+        game = ""
+        while i <= len(line):
+            if i == len(line):
+                val = ""
+                j = 1
+                while not (game[j] == ' '):
+                    val += game[j]
+                    j+=1
+                print(val)
+                num = int(val)
+                if num > 12 and "red" in game:
+                    possible = False
+                if num > 13 and "blue" in game:
+                    possible = False
+                if num > 14 and "green" in game:
+                    possible = False
+                game = ""
+                break
+            c = line[i]
+            if c == ':':
+                game = ""
+            elif c == ',' or c == ';':
+                val = ""
+                j = 1
+                while not (game[j] == ' '):
+                    val += game[j]
+                    j+=1
+                print(val)
+                num = int(val)
+                if num > maxred and "red" in game:
+                    possible = False
+                if num > maxblue and "blue" in game:
+                    possible = False
+                if num > maxgreen and "green" in game:
+                    possible = False
+                game = ""
+            else:
+                game += c
+            i+=1
+        if(possible):
+            totPos += count
+        count+=1
+    return totPos
+
+print(cubecon())

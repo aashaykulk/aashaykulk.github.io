@@ -1,0 +1,48 @@
+def CardPoints():
+    file = open("12-04.txt", 'r')
+    rd_file = file.read()
+    lines = rd_file.splitlines()
+    unlocked = []
+    for j in range(len(lines)):
+        unlocked.append(1)
+    j = 0
+    while j in range(len(unlocked)):
+        # print(unlocked)
+        line = lines[j]
+        winner = []
+        cards = []
+        start = False
+        i = 0
+        while(line[i] != '|'):
+            if line[i] == ':':
+                start = True
+                i+=1
+            if start:
+                num = ""
+                while (line[i] != ' '):
+                    num += line[i]
+                    i+=1
+                if len(num) > 0:
+                    winner.append(num)
+            i+=1
+        i+=1
+        while (i < len(line)):
+            num = ""
+            while (i < len(line) and line[i] != ' '):
+                num += line[i]
+                i+=1
+            if len(num) > 0:
+                cards.append(num)
+            i+=1
+        match = 0
+        for card in cards:
+            if card in winner:
+                    match += 1
+        s = j + 1
+        while (s <= j + match):
+            unlocked[s] += unlocked[j]
+            s += 1
+        j+=1
+    return sum(unlocked)
+
+print(CardPoints())

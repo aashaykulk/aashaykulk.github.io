@@ -1,0 +1,66 @@
+def numsum():
+    sum = 0
+    for line in open("12-01.txt", 'r'):
+        linesum = 0
+        last = 0
+        str = ""
+        for c in line:
+            if c >= '0' and c <= '9':
+                str = ""
+                if linesum == 0:
+                    linesum = (10 * int(c))
+                    last = (int(c))
+                else:
+                    last = (int(c))
+            else:
+                str = str + c
+                if "one" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 1)
+                    last = (1)
+                if "two" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 2)
+                    last = (2)
+                if "three" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 3)
+                    last = (3)
+                if "four" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 4)
+                    last = (4)
+                if "five" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 5)
+                    last = (5)
+                if "six" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 6)
+                    last = (6)
+                if "seven" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 7)
+                    last = (7)
+                if "eight" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 8)
+                    last = (8)
+                if "nine" in str:
+                    str = c
+                    if linesum == 0:
+                        linesum = (10 * 9)
+                    last = (9)
+        sum = sum + linesum + last
+        print(linesum, last)
+    return sum
+
+print(numsum())

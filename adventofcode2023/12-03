@@ -1,0 +1,18 @@
+
+def PartSum():
+    file = open("12-03.txt", 'r')
+    rd_file = file.read()
+    lines = rd_file.splitlines()
+    for line in lines:
+        n = ""
+        for c in line:
+            if not (c >= '0' and c <= '9') and not n == "":
+                
+            
+            if (c >= '0' and c <= '9'):
+                n += c
+    
+                    
+                
+
+PartSum()
